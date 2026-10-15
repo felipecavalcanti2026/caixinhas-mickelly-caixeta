@@ -21,7 +21,8 @@
 }}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.serif,.num,.stat b{font-variant-numeric:lining-nums tabular-nums}
 .wrap{max-width:980px;margin:0 auto;padding:0 20px}
 .serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:-.01em}
 
@@ -30,8 +31,8 @@ header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:42
 .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#d6a184;font-weight:600}
 .hero h1{font-size:clamp(40px,7vw,68px);line-height:1.02;margin:14px 0 18px;max-width:14ch}
 .hero p.lead{max-width:56ch;color:#d9cdc2;font-size:17px}
-.stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:36px;position:relative;z-index:1}
-.stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:#f7efe7}
+.stats{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;margin-top:36px;position:relative;z-index:1}
+.stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:#f7efe7;margin-bottom:6px}
 .stat span{font-size:13px;color:#b9aa9d}
 
 section.guide{padding:48px 0 8px}
@@ -42,28 +43,29 @@ section.guide{padding:48px 0 8px}
 .g p strong{color:var(--ink)}
 
 .toolbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:36px}
-.toolbar .wrap{display:flex;gap:10px;align-items:center;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.toolbar .wrap{padding-top:14px;padding-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13.5px Manrope,sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip{flex:none;line-height:1.2;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13.5px Manrope,sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
 .chip i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .chip small{color:var(--muted);font-weight:500}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chip[aria-pressed="true"] small{color:inherit;opacity:.7}
-.search{flex:0 1 230px;min-width:160px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;font:500 14px Manrope,sans-serif}
-.search:focus,.chip:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-main{padding:28px 0 80px}
-.group-h{display:flex;align-items:baseline;gap:14px;margin:40px 0 16px}
-.group-h h2{font-size:32px}
+main{padding:40px 0 80px}
+.group-h{display:flex;align-items:baseline;gap:14px;margin:44px 0 18px}
+main>.group-h:first-child{margin-top:16px}
+.group-h h2{font-size:32px;line-height:1.1}
 .group-h p{color:var(--muted);font-size:14.5px}
-.list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:16px;border-top:3px solid var(--c)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:24px;top:0;width:40px;height:3px;border-radius:0 0 3px 3px;background:var(--c)}
 .card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.num{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1;color:var(--c);font-weight:600}
+.num{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1;color:var(--c);font-weight:600;display:block}
 .meta{display:flex;gap:8px;align-items:center}
-.tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
-.dur{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag{line-height:1;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.dur{font-size:12px;line-height:1;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
 .card h3{font-family:Manrope,sans-serif;font-size:17px;font-weight:700;line-height:1.3}
 .box{background:linear-gradient(135deg,#f4c9b0,#e2a98b);color:#3a2418;border-radius:16px;padding:16px 18px 18px;position:relative}
 .box .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.7;margin-bottom:6px}
@@ -78,10 +80,13 @@ main{padding:28px 0 80px}
 footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:13px}
 
 @media (max-width:760px){
-  .guide-grid,.list{grid-template-columns:1fr}
+  .guide-grid,.list{grid-template-columns:minmax(0,1fr)}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+  .chips::-webkit-scrollbar{display:none}
+  .card{padding:20px}.card::before{left:20px}
+  .tag{display:none}
   header.hero{padding:52px 0 44px}
   .wrap{padding:0 16px}
-  .search{flex:1 1 100%}
   .group-h{flex-direction:column;gap:2px}
 }
 @media print{.toolbar,.copy{display:none}header.hero{background:none;color:#000}.card{break-inside:avoid}}
@@ -112,7 +117,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
 <div class="toolbar">
   <div class="wrap">
     <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por tema"></div>
-    <input class="search" id="q" type="search" placeholder="Buscar: botox, dor, preço…" aria-label="Buscar caixinhas">
   </div>
 </div>
 
@@ -123,27 +127,25 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
 <script>
 const DATA = [{"n": "01", "cat": "medos", "t": "Medo de ficar artificial", "q": "Doutora, tenho muita vontade de fazer harmonização, mas morro de medo de ficar com aquele rosto artificial. Tem como evitar?", "a": "Esse é um dos maiores medos que eu escuto no consultório. Mas harmonização não precisa significar transformar o seu rosto. O segredo está em respeitar suas proporções, sua anatomia e principalmente a sua identidade. Um bom planejamento busca valorizar o que você já tem de bonito, sem exageros."}, {"n": "02", "cat": "sinais", "t": "Rosto cansado", "q": "Doutora, todo mundo fala que eu pareço cansada, mesmo quando durmo bem. Harmonização pode ajudar?", "a": "Muitas vezes essa aparência de cansaço está relacionada à perda de volume, alterações na região dos olhos ou mudanças naturais do envelhecimento. Dependendo da causa, alguns procedimentos podem ajudar a suavizar esse aspecto. O primeiro passo é entender o que está deixando seu rosto com essa expressão."}, {"n": "03", "cat": "sinais", "t": "Flacidez e envelhecimento", "q": "Depois dos 35 senti que meu rosto começou a cair. Já é hora de fazer algum procedimento?", "a": "Não existe uma idade certa para começar. Com o passar dos anos, nossa pele perde colágeno e o rosto passa por mudanças estruturais. Hoje temos recursos que podem ajudar na firmeza e na qualidade da pele. Mas cada rosto envelhece de uma maneira, então o tratamento precisa ser individualizado."}, {"n": "04", "cat": "medos", "t": "Medo de preenchimento", "q": "Doutora, é verdade que depois que a gente começa a preencher o rosto não pode mais parar?", "a": "Não, isso é um mito. O preenchimento com ácido hialurônico não cria uma obrigação de continuar fazendo. O produto é reabsorvido gradualmente pelo organismo, embora sua duração varie. O importante é ter indicação, planejamento e evitar aplicações desnecessárias."}, {"n": "05", "cat": "sinais", "t": "Bigode chinês", "q": "Meu bigode chinês está cada vez mais marcado e me incomoda muito nas fotos. Só preenchimento resolve?", "a": "Nem sempre! O bigode chinês pode estar relacionado à perda de sustentação do rosto, e não apenas àquela linha que aparece perto da boca. Por isso, preencher diretamente a região nem sempre é a melhor estratégia. Precisamos avaliar a estrutura facial para definir o tratamento mais adequado."}, {"n": "06", "cat": "sinais", "t": "Perda de contorno", "q": "Doutora, sinto que meu rosto está perdendo o contorno e ficando mais pesado. Existe tratamento sem cirurgia?", "a": "Existem tratamentos não cirúrgicos que podem melhorar a aparência do contorno facial, dependendo do grau de flacidez e das características do rosto. Podemos avaliar tecnologias, bioestimuladores e outras abordagens. Mas é importante entender que nem todo caso pode ser resolvido sem cirurgia."}, {"n": "07", "cat": "medos", "t": "Botox e expressão facial", "q": "Tenho medo de fazer botox e ficar sem expressão. Dá pra suavizar as rugas sem congelar o rosto?", "a": "Sim, esse é justamente um dos objetivos de um planejamento bem feito: suavizar as linhas de expressão sem perder a naturalidade. A toxina botulínica age na contração muscular, e a dose e os pontos de aplicação fazem diferença. O objetivo não é tirar sua expressão, mas buscar um resultado equilibrado."}, {"n": "08", "cat": "sinais", "t": "Harmonização após os 40", "q": "Doutora, tenho 45 anos e nunca fiz nada no rosto. Será que já passou da hora de começar a cuidar?", "a": "De forma alguma! Não existe idade limite para começar a cuidar da pele e do rosto. Aos 45, podemos avaliar questões como firmeza, qualidade da pele e perda de volume. O mais importante não é recuperar o rosto dos 20 anos, mas valorizar sua beleza na fase em que você está."}, {"n": "09", "cat": "tratamentos", "t": "Bioestimulador ou preenchimento", "q": "Doutora, qual é melhor pra rejuvenescer: bioestimulador de colágeno ou ácido hialurônico?", "a": "São tratamentos com objetivos diferentes. O bioestimulador busca estimular a produção de colágeno, enquanto o ácido hialurônico pode ser utilizado para repor volume e melhorar determinados contornos. Um não substitui necessariamente o outro. A escolha depende do que seu rosto realmente precisa."}, {"n": "10", "cat": "sinais", "t": "Desejo de rejuvenescimento", "q": "Doutora, quero parecer mais jovem, mas não quero que ninguém perceba que fiz harmonização. Isso é possível?", "a": "Esse é um desejo muito comum entre minhas pacientes. A ideia de um tratamento natural é que as pessoas percebam uma aparência mais descansada e harmoniosa, sem necessariamente identificar um procedimento. Para isso, precisamos respeitar suas características e construir um plano que faça sentido para o seu rosto."}, {"n": "11", "cat": "experiencia", "t": "Uma experiência exclusiva", "q": "Doutora, como funciona a primeira consulta? Já saio de lá sabendo quais procedimentos preciso fazer?", "a": "A nossa consulta vai muito além de indicar procedimentos. É um momento dedicado a conhecer você, entender o que te incomoda, seus desejos e o que faz sentido para o seu rosto. Eu avalio cada detalhe, respeitando suas características e sua individualidade, para construir um planejamento exclusivo. Porque você não precisa de um rosto diferente, mas de um cuidado pensado especialmente para você."}, {"n": "12", "cat": "experiencia", "t": "Um plano só seu", "q": "Doutora, vocês têm protocolos prontos de harmonização ou cada paciente recebe um tratamento diferente?", "a": "Eu acredito que nenhum rosto deve ser tratado como outro. Cada mulher tem sua história, suas características e uma beleza que merece ser preservada. Por isso, não trabalho com uma receita pronta. Desenvolvemos um plano personalizado, considerando suas proporções, o processo de envelhecimento e seus objetivos. Aqui, você não é apenas mais uma paciente. Todo o planejamento é construído em torno de você."}, {"n": "13", "cat": "tratamentos", "t": "Recuperação após o procedimento", "q": "Doutora, se eu fizer harmonização, vou precisar ficar vários dias em casa me recuperando?", "a": "Essa é uma dúvida muito comum! A recuperação depende dos procedimentos realizados. Em muitos casos, é possível retomar boa parte da rotina rapidamente, embora possam ocorrer inchaço, sensibilidade ou hematomas. Durante a consulta, explico cada etapa, os cuidados necessários e o que você pode esperar da recuperação. Tudo é planejado considerando também a sua rotina."}, {"n": "14", "cat": "medos", "t": "Medo de sentir dor", "q": "Doutora, sou muito medrosa com agulha e dor. Harmonização dói muito?", "a": "Eu entendo esse receio, e por isso o conforto da paciente é uma das nossas prioridades. Dependendo do procedimento, podemos utilizar anestésicos e técnicas para minimizar o desconforto. Mais importante do que simplesmente realizar o tratamento é fazer com que você se sinta acolhida, segura e respeitada durante toda a experiência."}, {"n": "15", "cat": "investimento", "t": "Investimento e exclusividade", "q": "Doutora, quanto custa fazer uma harmonização facial completa?", "a": "Eu poderia te passar um valor, mas estaria tratando o seu rosto como se fosse igual ao de todas as outras mulheres. E não é assim que trabalhamos. Cada rosto possui necessidades diferentes, e nem sempre fazer mais procedimentos significa alcançar um resultado melhor. Primeiro, precisamos entender o que realmente faz sentido para você. A partir disso, construímos um planejamento exclusivo, com indicações e investimento transparentes."}, {"n": "16", "cat": "medos", "t": "Segurança dos procedimentos", "q": "Doutora, tenho vontade de fazer, mas vejo tantas harmonizações dando errado que fico com medo. Como saber se é seguro?", "a": "Esse medo é compreensível. Todo procedimento possui riscos, e por isso a escolha do profissional, o conhecimento da anatomia e a avaliação individual são fundamentais. Aqui, antes de qualquer indicação, analisamos seu histórico, suas características e possíveis contraindicações. A segurança precisa estar sempre acima de qualquer tendência estética."}, {"n": "17", "cat": "tratamentos", "t": "Duração dos resultados", "q": "Doutora, vou investir na harmonização e depois de poucos meses meu rosto vai voltar a ser como antes?", "a": "A duração dos resultados depende do procedimento, dos produtos utilizados e das características do seu organismo. Alguns tratamentos têm efeitos temporários, enquanto outros estimulam mudanças graduais na pele. Por isso, gosto de trabalhar com um planejamento de longo prazo, pensando não apenas no resultado inicial, mas também na manutenção e no envelhecimento natural do seu rosto."}, {"n": "18", "cat": "medos", "t": "Medo de se arrepender", "q": "Doutora, e se eu fizer harmonização e depois não gostar do meu rosto? Esse é meu maior medo!", "a": "É justamente por isso que a consulta é tão importante. Antes de qualquer procedimento, conversamos sobre suas expectativas, avaliamos suas proporções e discutimos os resultados possíveis e os riscos. Eu acredito que uma harmonização bem planejada começa muito antes da aplicação. E se algum tratamento não fizer sentido para você, a minha responsabilidade também é saber dizer não."}, {"n": "19", "cat": "investimento", "t": "Por que os valores variam?", "q": "Doutora, por que existe tanta diferença de preço entre uma clínica e outra se o procedimento é o mesmo?", "a": "Porque você não está investindo apenas em uma seringa ou em um produto. Existem fatores como a qualificação do profissional, a procedência dos materiais, a estrutura, a segurança e todo o planejamento envolvido. Aqui, cada indicação é feita de forma individualizada, pensando no que realmente pode valorizar o seu rosto. O importante é compreender tudo o que está envolvido no seu tratamento."}, {"n": "20", "cat": "experiencia", "t": "Acompanhamento pós-procedimento", "q": "Doutora, depois que eu faço a harmonização, vocês acompanham o resultado ou só volto se tiver algum problema?", "a": "O acompanhamento faz parte de um tratamento bem planejado. Dependendo do procedimento, programamos uma reavaliação para observar a evolução, esclarecer dúvidas e verificar se está tudo dentro do esperado. A paciente também recebe orientações sobre os sinais que precisam de atenção. Para mim, cuidar de você não termina quando o procedimento acaba."}, {"n": "21", "cat": "tratamentos", "t": "Fazer tudo de uma vez?", "q": "Doutora, preciso fazer todos os procedimentos de uma vez para ter um resultado bonito?", "a": "Não! Na verdade, muitas vezes o melhor caminho é construir o resultado em etapas. Durante a avaliação, identificamos suas prioridades e o que pode trazer benefícios mais relevantes para o seu rosto. Assim, conseguimos elaborar um planejamento respeitando suas necessidades, seu tempo e até a organização do seu investimento. Harmonização não é sobre fazer tudo, é sobre fazer o que realmente faz sentido."}, {"n": "22", "cat": "investimento", "t": "Vale a pena investir?", "q": "Doutora, sempre cuidei de todo mundo e acabei deixando minha aparência de lado. Como saber se vale a pena investir em mim?", "a": "Eu acredito que cuidar de si mesma não precisa ser visto como um luxo ou uma obrigação. É uma escolha muito pessoal. Muitas mulheres chegam aqui depois de anos priorizando tantas outras coisas e desejam reservar um momento para elas. Minha função é acolher esse desejo, entender suas expectativas e apresentar possibilidades de cuidado que respeitem sua beleza, sua história e suas decisões."}];
 const CATS = {
-  medos:{n:"Medos e receios",d:"Quebram as objeções que travam a decisão."},
-  sinais:{n:"Sinais do rosto",d:"A paciente se reconhece no incômodo."},
-  tratamentos:{n:"Tratamentos e resultados",d:"Tiram dúvidas técnicas sem virar aula."},
-  experiencia:{n:"A experiência da consulta",d:"Mostram como é ser atendida pela doutora."},
-  investimento:{n:"Investimento",d:"Preparam a conversa de valor antes da consulta."}
+  medos:{s:"Medos",n:"Medos e receios",d:"Quebram as objeções que travam a decisão."},
+  sinais:{s:"Sinais do rosto",n:"Sinais do rosto",d:"A paciente se reconhece no incômodo."},
+  tratamentos:{s:"Tratamentos",n:"Tratamentos e resultados",d:"Tiram dúvidas técnicas sem virar aula."},
+  experiencia:{s:"Consulta",n:"A experiência da consulta",d:"Mostram como é ser atendida pela doutora."},
+  investimento:{s:"Investimento",n:"Investimento",d:"Preparam a conversa de valor antes da consulta."}
 };
 const ORDER = Object.keys(CATS);
-let cat = "todas", term = "";
+let cat = "todas";
 const $ = s => document.querySelector(s);
 const secs = t => Math.max(10, Math.round(t.split(/\s+/).length / 2.6 / 5) * 5);
-const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function chips(){
   const counts = DATA.reduce((m,x)=>(m[x.cat]=(m[x.cat]||0)+1,m),{});
-  const all = [["todas","Todas",DATA.length,"var(--accent)"], ...ORDER.map(k=>[k,CATS[k].n,counts[k],`var(--c-${k})`])];
+  const all = [["todas","Todas",DATA.length,"var(--accent)"], ...ORDER.map(k=>[k,CATS[k].s,counts[k],`var(--c-${k})`])];
   $("#chips").innerHTML = all.map(([k,n,c,col])=>`<button class="chip" style="--c:${col}" data-k="${k}" aria-pressed="${k===cat}"><i></i>${n} <small>${c}</small></button>`).join("");
 }
 function render(){
-  const t = norm(term.trim());
-  const items = DATA.filter(x => (cat==="todas"||x.cat===cat) && (!t || norm(x.t+" "+x.q+" "+x.a).includes(t)));
+  const items = DATA.filter(x => cat==="todas"||x.cat===cat);
   if(!items.length){ $("#main").innerHTML = `<p class="empty">Nenhuma caixinha encontrada.</p>`; return; }
   $("#main").innerHTML = ORDER.filter(k=>items.some(x=>x.cat===k)).map(k=>`
     <div class="group-h"><h2 class="serif">${CATS[k].n}</h2><p>${CATS[k].d}</p></div>
@@ -159,7 +161,6 @@ function card(x){
   </article>`;
 }
 $("#chips").addEventListener("click", e=>{const b=e.target.closest(".chip"); if(!b) return; cat=b.dataset.k; chips(); render();});
-$("#q").addEventListener("input", e=>{term=e.target.value; render();});
 $("#main").addEventListener("click", async e=>{
   const b=e.target.closest(".copy"); if(!b) return;
   const x=DATA.find(d=>d.n===b.dataset.n);

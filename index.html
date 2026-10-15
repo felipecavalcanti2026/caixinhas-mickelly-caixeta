@@ -42,9 +42,11 @@ header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:42
 .hero h1{font-size:clamp(40px,7vw,68px);line-height:1.02;margin:32px 0 18px;max-width:14ch;position:relative;z-index:1}
 .hero p.lead{position:relative;z-index:1}
 .hero p.lead{max-width:56ch;color:#d9cdc2;font-size:17px}
-.stats{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;margin-top:36px;position:relative;z-index:1}
-.stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:#f7efe7;margin-bottom:6px}
-.stat span{font-size:13px;color:#b9aa9d}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;margin-top:36px;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.14)}
+.stat{padding:18px 20px 0;border-left:1px solid rgba(255,255,255,.14)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:#f7efe7;margin-bottom:8px;white-space:nowrap}
+.stat span{display:block;font-size:13px;line-height:1.35;color:#b9aa9d}
 
 section.guide{padding:48px 0 8px}
 .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -155,6 +157,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
 .sources a{color:var(--accent)}
 
 @media (max-width:760px){
+  .stat{padding:14px 12px 0}.stat b{font-size:26px}.stat span{font-size:12px}
   .cities,.scen,.steps,.checks{grid-template-columns:minmax(0,1fr)}
   .funnel{grid-template-columns:minmax(0,1fr)}
   .arrow{transform:rotate(90deg);height:20px}

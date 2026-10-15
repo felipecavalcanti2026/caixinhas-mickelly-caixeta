@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Caixinhas · Dra. Mickelly Caixeta</title>
+<meta property="og:title" content="22 caixinhas · Dra. Mickelly Caixeta">
+<meta property="og:description" content="Perguntas e respostas para vídeos de até 40 segundos · Harmonização facial">
+<meta property="og:image" content="https://felipecavalcanti2026.github.io/caixinhas-mickelly-caixeta/avatar.jpg">
+<link rel="icon" href="avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,8 +32,15 @@ body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,s
 
 header.hero{background:var(--deep);color:var(--on-deep);padding:72px 0 64px;position:relative;overflow:hidden}
 header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(214,161,132,.25);box-shadow:0 0 0 60px rgba(214,161,132,.05),0 0 0 120px rgba(214,161,132,.03)}
+.profile{display:flex;align-items:center;gap:16px;position:relative;z-index:1}
+.avatar{width:80px;height:80px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#f4c9b0,#a8765a);flex:none}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--deep)}
+.pname{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;line-height:1.15;color:#f7efe7}
+.handle{display:inline-block;margin-top:6px;font-size:13.5px;color:#d6a184;text-decoration:none;font-weight:600}
+.handle:hover{text-decoration:underline}
 .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#d6a184;font-weight:600}
-.hero h1{font-size:clamp(40px,7vw,68px);line-height:1.02;margin:14px 0 18px;max-width:14ch}
+.hero h1{font-size:clamp(40px,7vw,68px);line-height:1.02;margin:32px 0 18px;max-width:14ch;position:relative;z-index:1}
+.hero p.lead{position:relative;z-index:1}
 .hero p.lead{max-width:56ch;color:#d9cdc2;font-size:17px}
 .stats{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;margin-top:36px;position:relative;z-index:1}
 .stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;color:#f7efe7;margin-bottom:6px}
@@ -95,7 +106,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
 <body>
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Dra. Mickelly Caixeta · Harmonização facial</div>
+    <div class="profile">
+      <div class="avatar"><img src="avatar.jpg" alt="Dra. Mickelly Caixeta" width="74" height="74"></div>
+      <div>
+        <div class="eyebrow">Harmonização facial · Brasília e Luziânia</div>
+        <div class="pname">Dra. Mickelly Caixeta</div>
+        <a class="handle" href="https://www.instagram.com/dramickellycaixeta/" target="_blank" rel="noopener">@dramickellycaixeta</a>
+      </div>
+    </div>
     <h1 class="serif">22 caixinhas para gravar</h1>
     <p class="lead">Perguntas e respostas para vídeos de até 40 segundos, organizadas por tema. Campanha de meio de funil: cada vídeo responde a uma dúvida real e leva a paciente até a consulta de avaliação.</p>
     <div class="stats">
